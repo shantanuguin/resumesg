@@ -1,0 +1,47 @@
+.contact {
+  border-top: 1px solid var(--border);
+}
+
+.wrapper {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.heading {
+  margin-bottom: 1.5rem;
+}
+
+.headingAccent {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: color var(--duration-fast) ease;
+}
+
+a.infoItem:hover {
+  color: var(--accent);
+}

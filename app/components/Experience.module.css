@@ -1,0 +1,202 @@
+.heading {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+/* ==============================
+   Timeline Section — Side Label
+   ============================== */
+.timelineSection {
+  position: relative;
+  margin-bottom: 8rem;
+  display: block;
+}
+
+
+.timelineSection:last-child {
+  margin-bottom: 0;
+}
+
+/* The horizontal heading — just plain text, no sticky, no background */
+.stickyHeader {
+  display: block;
+  text-align: center;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 1.5rem 0;
+  margin-bottom: 1rem;
+}
+
+.contentWrapper {
+  display: flex;
+  align-items: stretch; /* Must be stretch so the side label container has full height to stick within! */
+  position: relative;
+}
+
+/* The container for the vertical side label */
+.sideLabelContainer {
+  width: 5rem;
+  flex-shrink: 0;
+  z-index: 9;
+  pointer-events: none;
+  opacity: 0; /* starts hidden, GSAP fades it in */
+  height: 100%;
+}
+
+/* The actual sticky text inside the flex item */
+.sideLabelSpan {
+  position: sticky;
+  top: calc(var(--nav-height) + 2rem);
+  display: block;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+  padding: 1rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+.timelineBody {
+  flex: 1;
+}
+
+/* ==============================
+   Timeline
+   ============================== */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 2.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--border));
+  border-radius: 2px;
+}
+
+.timelineItem {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.dot {
+  position: absolute;
+  left: -2.5rem;
+  top: 1.8rem;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--accent);
+  z-index: 2;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.content {
+  padding-left: 0.5rem;
+}
+
+.datePill {
+  display: inline-block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.card {
+  padding: 1.75rem;
+}
+
+.company {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.role {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.points li {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.points li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.points li strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .timelineSection {
+    padding-left: 0;
+    margin-bottom: 4rem;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden; /* Prevent any child from causing horizontal scroll */
+  }
+  
+  .stickyHeader {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding: 1rem 0 !important;
+    position: relative !important;
+  }
+
+  .sideLabelContainer {
+    display: none;
+  }
+
+  .timeline {
+    padding-left: 0;
+  }
+
+  .dot {
+    left: -2rem;
+    width: 18px;
+    height: 18px;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+}
+

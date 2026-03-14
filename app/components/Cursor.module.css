@@ -1,0 +1,37 @@
+.cursor {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out), 
+              background-color 0.3s var(--ease-out), opacity 0.3s ease;
+  mix-blend-mode: difference;
+}
+
+.cursor.hidden {
+  opacity: 0;
+}
+
+.cursor.clicked {
+  transform: translate(-50%, -50%) scale(0.8);
+  background-color: var(--accent);
+}
+
+.cursor.linkHovered {
+  width: 50px;
+  height: 50px;
+  background-color: var(--accent);
+  border-color: transparent;
+  opacity: 0.8;
+  mix-blend-mode: normal;
+}
+
+@media (max-width: 768px) {
+  .cursor {
+    display: none;
+  }
+}

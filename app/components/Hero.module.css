@@ -1,0 +1,274 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  padding-top: var(--nav-height);
+  padding-bottom: 0; 
+}
+
+.heroContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  width: 100%;
+}
+
+.heroMain {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* More space for text, pushing achievements right */
+  gap: 10rem; /* Increased gap even further */
+  align-items: center;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Tighter spacing */
+  transform: translateY(-28px); /* Nudged up further per request */
+}
+
+.eyebrow {
+  color: var(--accent);
+}
+
+.displayName {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.9;
+  margin-bottom: 0.5rem;
+  font-size: clamp(2rem, 5vw, 4rem); /* Reduced further */
+}
+
+.nameAccent {
+  color: var(--accent);
+}
+
+.subtitleReveal {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Tighter spacing */
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 540px;
+}
+
+.ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.meta {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.5rem; /* Reduced from 1.5rem */
+  padding-top: 1rem; /* Reduced from 1.5rem */
+  border-top: 1px solid var(--border);
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ==============================
+   Achievements 
+   ============================== */
+.heroAchievements {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  max-width: 400px;
+  justify-self: flex-end;
+  transform: translateY(calc(-2rem - 20px)); /* Nudged an additional 20px up */
+}
+
+.achievementsTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.achievementsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Increased gap between cards */
+}
+
+.achievement {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg);
+  border-radius: 0.85rem;
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.achievement:hover {
+  transform: translateX(8px);
+  border-color: var(--accent);
+}
+
+.achievementIcon {
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem; /* Reduced further */
+  height: 2rem; /* Reduced further */
+  background: var(--surface);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.achievementIcon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.achievementTextWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  flex: 1;
+}
+
+.achievementValue {
+  font-size: 1.15rem; /* Reduced further */
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  font-family: var(--font-mono);
+  display: inline-block; /* Support dimension pinning */
+}
+
+.achievementLabel {
+  font-size: 0.75rem; /* Reduced from 0.8rem */
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+  font-family: inherit;
+  display: inline-block; /* Support dimension pinning */
+}
+
+/* ==============================
+   Marquee Container
+   ============================== */
+.marqueeContainer {
+  position: absolute;
+  bottom: -15px; /* Shifted total 14px down from original 2px */
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  height: auto;
+  padding: 1rem 0;
+}
+
+/* ==============================
+   Responsive
+   ============================== */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 2rem;
+    padding-bottom: 0;
+    min-height: auto;
+    overflow: hidden; /* Prevent any child from causing horizontal scroll */
+  }
+
+  .heroContent {
+    justify-content: flex-start;
+  }
+
+  .heroMain {
+    grid-template-columns: 1fr; /* STACK on mobile */
+    gap: 2rem;
+  }
+
+  .displayName {
+    font-size: clamp(2.4rem, 10vw, 3.2rem);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .heroText {
+    gap: 1.25rem;
+    transform: none;
+    text-align: center;
+    align-items: center;
+  }
+
+  .subtitleReveal {
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .meta {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .heroAchievements {
+    transform: none;
+    max-width: 100%;
+    margin-top: 0;
+    padding: 1.25rem;
+  }
+
+  .achievementsGrid {
+    gap: 0.75rem;
+  }
+
+  .achievement {
+    padding: 0.75rem;
+  }
+
+  .achievement:hover {
+    transform: none; /* Disable hover shift on mobile */
+  }
+
+  .marqueeContainer {
+    position: static; /* Flow in document instead of absolute */
+    margin-top: 2rem;
+    padding: 0.75rem 0;
+    bottom: auto;
+  }
+}

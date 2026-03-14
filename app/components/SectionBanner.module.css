@@ -1,0 +1,51 @@
+.banner {
+  padding: 2.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.number {
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), var(--border));
+}
+
+.line:last-child {
+  background: linear-gradient(90deg, var(--border), transparent);
+}
+
+.title {
+  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .banner {
+    padding: 1.5rem 0;
+  }
+
+  .inner {
+    gap: 1rem;
+  }
+}

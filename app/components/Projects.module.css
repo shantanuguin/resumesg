@@ -1,0 +1,142 @@
+.projects {
+  border-top: 1px solid var(--border);
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.card {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.featured {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--accent-glow);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.featured svg {
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.cardLink {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+/* Creative Portfolio */
+.creativeHeading {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: clamp(1.4rem, 3vw, 2rem) !important;
+}
+
+.creativeGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.creativeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  gap: 1rem;
+  min-height: 160px;
+}
+
+.creativeEmoji {
+  font-size: 2.5rem;
+}
+
+.creativeTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.videoCard {
+  position: relative;
+}
+
+.videoLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.videoLink {
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .creativeGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .creativeGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
