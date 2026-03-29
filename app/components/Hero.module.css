@@ -66,7 +66,7 @@
 
 @media (min-width: 1024px) {
   .textContent {
-    bottom: calc(4.5rem - 2.5px);
+    bottom: calc(3.8rem - 2.5px);
     left: 4rem;
     max-width: 550px;
   }
@@ -142,7 +142,7 @@
 
 @media (min-width: 768px) {
   .firstName {
-    font-size: min(8vw, 15vh);
+    font-size: min(8vw, 11vh);
     mix-blend-mode: color-burn;
     opacity: 0.9;
     filter: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
@@ -151,13 +151,13 @@
 
 @media (min-width: 1024px) {
   .firstName {
-    font-size: min(11vw, 18vh);
+    font-size: min(11vw, 13vh);
   }
 }
 
 @media (min-width: 1200px) {
   .firstName {
-    font-size: min(14vw, 22vh);
+    font-size: min(14vw, 16vh);
   }
 }
 
@@ -175,7 +175,7 @@
 
 @media (min-width: 768px) {
   .lastName {
-    font-size: min(8vw, 15vh);
+    font-size: min(8vw, 11vh);
     -webkit-text-stroke: 2px rgba(45, 45, 58, 0.6);
     margin-top: -0.25rem;
   }
@@ -183,13 +183,13 @@
 
 @media (min-width: 1024px) {
   .lastName {
-    font-size: min(11vw, 18vh);
+    font-size: min(11vw, 13vh);
   }
 }
 
 @media (min-width: 1200px) {
   .lastName {
-    font-size: min(14vw, 22vh);
+    font-size: min(14vw, 16vh);
   }
 }
 
