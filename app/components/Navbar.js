@@ -34,11 +34,19 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
+    let lastScroll = 0;
     const onScroll = () => {
-      setScrolled(window.scrollY > 40);
-      setIsHidden(window.scrollY < window.innerHeight * 0.5);
+      const curr = window.scrollY;
+      setScrolled(curr > 40);
+      // Hide only when scrolling DOWN past the hero, show when scrolling UP
+      if (curr > window.innerHeight) {
+        setIsHidden(curr > lastScroll);
+      } else {
+        setIsHidden(false); // Always visible on hero
+      }
+      lastScroll = curr;
     };
-    onScroll(); // initial check
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);

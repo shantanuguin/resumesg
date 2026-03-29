@@ -18,11 +18,11 @@
   align-items: center;
   gap: 1.5rem;
   padding: 0 1.5rem;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-secondary);
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .dot {

@@ -1,7 +1,6 @@
 'use client';
 
 import { useScrollReveal, useStaggerReveal, useHeadingMorph } from '../lib/animations';
-import { useTilt } from '../lib/useTilt';
 import styles from './Experience.module.css';
 
 const WORK_EXPERIENCE = [
@@ -86,14 +85,12 @@ const EDUCATION = [
 ];
 
 function TimelineItem({ item }) {
-  const tiltRef = useTilt({ maxTilt: 4, scale: 1.02, speed: 400 });
-
   return (
     <div className={styles.timelineItem}>
       <div className={styles.dot} />
       <div className={styles.content}>
         <span className={`${styles.datePill} mono`}>{item.date}</span>
-        <div className={`${styles.card} card`} ref={tiltRef}>
+        <div className={`${styles.card} card`}>
           <h3 className={styles.company}>{item.company}</h3>
           <p className={styles.role}>{item.role}</p>
           {item.points.length > 0 && (

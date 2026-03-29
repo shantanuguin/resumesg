@@ -1,4 +1,4 @@
-import { Inter, IBM_Plex_Mono, Playfair_Display } from 'next/font/google';
+import { Inter, IBM_Plex_Mono, Playfair_Display, Lora } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from './lib/theme';
 import Navbar from './components/Navbar';
@@ -25,6 +25,12 @@ const playfair = Playfair_Display({
   display: 'swap',
 });
 
+const lora = Lora({
+  subsets: ['latin'],
+  variable: '--font-lora',
+  display: 'swap',
+});
+
 export const metadata = {
   title: 'Shantanu Guin | Apparel Technology & Innovation',
   description:
@@ -39,7 +45,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${ibmPlexMono.variable} ${playfair.variable}`} data-theme="dark" suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${ibmPlexMono.variable} ${playfair.variable} ${lora.variable}`} data-theme="dark" suppressHydrationWarning>
       <body>
         <ThemeProvider>
           <Cursor />

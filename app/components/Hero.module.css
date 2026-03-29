@@ -2,19 +2,19 @@
    HERO — Tailwind Reference Layout
    ============================== */
 .hero {
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
-  display: flex;
-  flex-direction: column;
   background: var(--hero-bg);
+  overflow: hidden;
 }
 
 .splitLayout {
   display: flex;
   flex-direction: column;
   width: 100%;
-  flex: 1;
-  min-height: 100vh;
+  height: 100%;
+  position: relative;
+  padding-bottom: 3rem;
 }
 
 @media (min-width: 768px) {
@@ -26,20 +26,25 @@
 /* --- Left Block: 55% --- */
 .leftBlock {
   width: 100%;
+  flex: 1;
   position: relative;
   z-index: 10;
+  padding: 0 2rem;
+  padding-top: 0;
+  background: transparent;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 6rem;
-  background: var(--hero-bg);
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 1.5rem;
 }
 
 @media (min-width: 768px) {
   .leftBlock {
     width: 55%;
+    flex: none;
     height: 100%;
-    padding-top: 0;
+    padding: 0;
+    display: block;
   }
 }
 
@@ -47,7 +52,6 @@
   width: 100%;
   max-width: 360px;
   position: relative;
-  /* Tailwind: absolute bottom-14 left-8 md:bottom-16 md:left-12 lg:left-16 */
   z-index: 30;
 }
 
@@ -69,16 +73,23 @@
 /* --- Name Typography (Absolute Overlapping) --- */
 .nameContainer {
   position: absolute;
-  top: 8%;
-  left: 2rem;
-  z-index: 40;
+  top: 5%;
+  left: 1rem;
+  z-index: 5;
   pointer-events: none;
 }
 
 @media (min-width: 768px) {
   .nameContainer {
-    top: 12%;
+    top: 10%;
     left: 3rem;
+    z-index: 40;
+  }
+}
+
+@media (min-width: 1200px) {
+  .nameContainer {
+    top: 8%;
   }
 }
 
@@ -115,14 +126,21 @@
   font-size: 18vw;
   font-weight: 700;
   color: var(--hero-bg-right);
-  filter: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
   position: relative;
   z-index: 20;
-  mix-blend-mode: color-burn;
-  opacity: 0.9;
+  opacity: 0.12;
 }
 
 @media (min-width: 768px) {
+  .firstName {
+    font-size: 10vw;
+    mix-blend-mode: color-burn;
+    opacity: 0.9;
+    filter: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
+  }
+}
+
+@media (min-width: 1200px) {
   .firstName {
     font-size: 13vw;
   }
@@ -134,8 +152,7 @@
   font-style: italic;
   font-weight: 400;
   color: transparent;
-  /* Dark outline by default (mobile/light theme fallback) */
-  -webkit-text-stroke: 1.5px rgba(45, 45, 58, 0.8);
+  -webkit-text-stroke: 1.5px rgba(45, 45, 58, 0.4);
   position: relative;
   z-index: 30;
   margin-top: 0;
@@ -143,9 +160,15 @@
 
 @media (min-width: 768px) {
   .lastName {
-    font-size: 13vw;
-    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.9);
+    font-size: 10vw;
+    -webkit-text-stroke: 2px rgba(45, 45, 58, 0.6);
     margin-top: -0.25rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .lastName {
+    font-size: 13vw;
   }
 }
 
@@ -199,16 +222,17 @@
 
 .subtitle {
   font-family: var(--font-body);
-  font-size: 0.875rem;
-  line-height: 1.625;
+  font-size: 0.8rem;
+  line-height: 1.6;
   font-weight: 500;
   color: var(--hero-text);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 @media (min-width: 768px) {
   .subtitle {
     font-size: 1rem;
+    line-height: 1.625;
     margin-bottom: 2rem;
   }
 }
@@ -222,7 +246,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 @media (min-width: 768px) {
@@ -237,7 +261,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
+  padding: 0.5rem 1.25rem;
   border-radius: 9999px;
   font-weight: 700;
   font-size: 10px;
@@ -265,7 +289,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
+  padding: 0.5rem 1.25rem;
   border-radius: 9999px;
   font-weight: 700;
   font-size: 10px;
@@ -318,15 +342,17 @@
 /* --- Right Block: 45% Image Area --- */
 .rightBlock {
   width: 100%;
+  flex: 1;
   position: relative;
   overflow: hidden;
-  background-color: #111827; /* gray-900 */
-  border-bottom-left-radius: 1.5rem;
+  background-color: #111827;
+  border-bottom-left-radius: 0;
 }
 
 @media (min-width: 768px) {
   .rightBlock {
     width: 45%;
+    flex: none;
     height: 100%;
     border-bottom-left-radius: 0;
   }
@@ -350,7 +376,7 @@
   bottom: 0;
   left: 0;
   width: 50%;
-  background: linear-gradient(to right, var(--hero-bg) 0%, rgba(245, 198, 216, 0.7) 50%, transparent 100%);
+  background: linear-gradient(to right, var(--hero-bg) 0%, rgba(255, 214, 228, 0.7) 50%, transparent 100%);
   z-index: 10;
   pointer-events: none;
   display: none;
@@ -431,9 +457,13 @@
   bottom: 0;
   left: 0;
   width: 100%;
+  height: 3rem;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(10, 10, 15, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(45, 45, 58, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }

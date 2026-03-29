@@ -34,14 +34,15 @@
   --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.5);
 
   /* Hero-specific (Pastel Pop) */
-  --hero-bg: #f5c6d8;
-  --hero-bg-right: #1a1a2e;
-  --hero-text: #1a1a2e;
+  --hero-bg: #ffd6e4;
+  --hero-bg-right: #111116;
+  --hero-text: #2d2d3a;
 
   /* Font families */
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --font-body: var(--font-inter), sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), monospace;
   --font-serif: var(--font-playfair), serif;
+  --font-subhead: var(--font-lora), serif;
 
   /* Sizing */
   --nav-height: 4rem;
@@ -88,9 +89,9 @@
   --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.1);
 
-  --hero-bg: #f5c6d8;
-  --hero-bg-right: #1a1a2e;
-  --hero-text: #1a1a2e;
+  --hero-bg: #ffd6e4;
+  --hero-bg-right: #111116;
+  --hero-text: #2d2d3a;
 }
 
 /* ========================= */

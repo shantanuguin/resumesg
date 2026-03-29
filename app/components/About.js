@@ -1,13 +1,11 @@
 'use client';
 
 import { useAboutReveal } from '../lib/animations';
-import { useTilt } from '../lib/useTilt';
 import styles from './About.module.css';
 
 function DetailCard({ eyebrow, text }) {
-  const tiltRef = useTilt({ maxTilt: 5, scale: 1.02 });
   return (
-    <div className={styles.detailCard} ref={tiltRef}>
+    <div className={styles.detailCard}>
       <p className="eyebrow">{eyebrow}</p>
       <p className={styles.detailText}>{text}</p>
     </div>
