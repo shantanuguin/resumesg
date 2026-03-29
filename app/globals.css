@@ -36,6 +36,7 @@
   /* Font families */
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --font-serif: var(--font-playfair), serif;
 
   /* Sizing */
   --nav-height: 4rem;
@@ -171,6 +172,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+}
+
+.serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 .eyebrow {

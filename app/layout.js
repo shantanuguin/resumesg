@@ -1,4 +1,4 @@
-import { Inter, IBM_Plex_Mono } from 'next/font/google';
+import { Inter, IBM_Plex_Mono, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from './lib/theme';
 import Navbar from './components/Navbar';
@@ -19,6 +19,12 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: 'swap',
 });
 
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+});
+
 export const metadata = {
   title: 'Shantanu Guin | Apparel Technology & Innovation',
   description:
@@ -33,7 +39,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${ibmPlexMono.variable}`} data-theme="dark" suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${ibmPlexMono.variable} ${playfair.variable}`} data-theme="dark" suppressHydrationWarning>
       <body>
         <ThemeProvider>
           <Cursor />

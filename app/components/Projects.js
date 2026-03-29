@@ -86,10 +86,12 @@ export default function Projects() {
 
   return (
     <section id="projects" className={`section ${styles.projects}`}>
-      <div className={styles.achievementsRow}>
-        {ACHIEVEMENTS.map((a, i) => (
-          <AchievementCard key={i} {...a} />
-        ))}
+      <div className="container">
+        <div className={styles.achievementsRow}>
+          {ACHIEVEMENTS.map((a, i) => (
+            <AchievementCard key={i} {...a} />
+          ))}
+        </div>
       </div>
 
       <div className="container">

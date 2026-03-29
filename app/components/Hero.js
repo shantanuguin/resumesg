@@ -26,26 +26,24 @@ export default function Hero() {
 
   return (
     <section id="hero" className={styles.hero}>
-      {/* Particle background */}
-      <ParticleCanvas />
-
-      <div className={styles.heroContent}>
-        <div className={styles.heroMain}>
-          <div className={styles.heroText}>
+      <div className={styles.gridContainer}>
+        {/* Left Side: Text & Content */}
+        <div className={styles.leftBlock}>
+          <div className={`${styles.index} mono`}>01</div>
+          
+          <div className={styles.textContent}>
             <p className={`${styles.eyebrow} eyebrow`}>Apparel Technology & Innovation</p>
-            <h1
-              className={`${styles.displayName} display-heading`}
-              ref={titleRef}
-            >
-              <div className="word" style={{ transformOrigin: '0 100%' }}>Shantanu</div>
-              <div className={`word ${styles.nameAccent}`} style={{ transformOrigin: '0 100%' }}>Guin</div>
+            <h1 className={`${styles.displayName} serif`} ref={titleRef}>
+              Shantanu <br />
+              <span className={styles.nameAccent}>Guin</span>
             </h1>
+            
             <div className={styles.subtitleReveal} ref={metaRef}>
               <p className={styles.subtitle}>
                 Apparel Production Technology student at <strong>NIFT</strong> specializing
-                in manufacturing optimization, factory digitalization, and automation
-                in apparel production systems.
+                in manufacturing optimization, factory digitalization, and automation.
               </p>
+              
               <div className={styles.ctas}>
                 <a
                   href="https://shantanuguin.github.io/costcalc/ResSG.pdf"
@@ -81,10 +79,21 @@ export default function Hero() {
               </div>
             </div>
           </div>
+        </div>
 
-          <div className={styles.achievementsWrapper} ref={achievementsRef}>
-            <div className={`heroNavCard ${styles.heroNavCard}`} ref={tiltRef}>
-              <h2 className={styles.achievementsTitle}>Explore Portfolio</h2>
+        {/* Right Side: Visual & Nav */}
+        <div className={styles.rightBlock}>
+          <div className={styles.visualElement}>
+            <div className={styles.imagePlaceholder}>
+              {/* This is where a high-quality portrait would go, similar to the inspiration */}
+              <div className={styles.imageOverlay} />
+            </div>
+            <ParticleCanvas />
+          </div>
+          
+          <div className={styles.navWrapper} ref={achievementsRef}>
+            <div className={`${styles.heroNavCard}`} ref={tiltRef}>
+              <h2 className={styles.navTitle}>Exploration</h2>
               <div className={styles.heroNavGrid}>
                 {HERO_NAVS.map((nav, i) => (
                   <a key={i} href={nav.href} className={styles.heroNavLink} onClick={(e) => {
@@ -100,6 +109,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
       <div className={styles.marqueeContainer}>
         <Marquee />
       </div>
