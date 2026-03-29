@@ -73,9 +73,9 @@
    ============================== */
 .timeline {
   position: relative;
-  max-width: 1000px;
+  max-width: var(--container-max); /* Utilizes the full wide-screen layout constraint */
   margin: 0 auto;
-  padding: 0; /* Remove left padding for desktop center layout */
+  padding: 0;
 }
 
 .timeline::before {
@@ -98,12 +98,12 @@
 
 .timelineItem:nth-child(odd) {
   left: 0;
-  padding-right: 3rem;
+  padding-right: 4rem; /* Increased side margin spacing */
 }
 
 .timelineItem:nth-child(even) {
   left: 50%;
-  padding-left: 3rem;
+  padding-left: 4rem; /* Increased side margin spacing */
 }
 
 .dot {

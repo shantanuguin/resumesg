@@ -31,11 +31,16 @@ function NavLink({ link, onClick, isActive }) {
 export default function Navbar() {
   const { theme, toggleTheme, mounted } = useTheme();
   const [scrolled, setScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+      setIsHidden(window.scrollY < window.innerHeight * 0.5);
+    };
+    onScroll(); // initial check
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -90,7 +95,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
+      <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''} ${isHidden ? styles.hidden : ''}`}>
         <div className={styles.inner}>
           <a
             href="#hero"

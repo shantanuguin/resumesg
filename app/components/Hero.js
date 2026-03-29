@@ -2,34 +2,19 @@
 
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { TrendingUp, CheckCircle, ShieldCheck, Zap, FileText, Linkedin, MapPin, GraduationCap } from 'lucide-react';
+import { Briefcase, FolderGit2, Cpu, Send, FileText, Linkedin, MapPin, GraduationCap } from 'lucide-react';
 import { useCounter, useMagnetic, useStaggerReveal, useParallax, useTextScramble } from '../lib/animations';
 import { useTilt } from '../lib/useTilt';
 import ParticleCanvas from './ParticleCanvas';
 import Marquee from './Marquee';
 import styles from './Hero.module.css';
 
-const ACHIEVEMENTS = [
-  { value: 64, label: 'Reduction in Sewing Line Changeover Time (%)', icon: <TrendingUp size={24} /> },
-  { value: 15, label: 'Increase in First-Hour Production Efficiency', icon: <Zap size={24} /> },
-  { value: 45, label: 'Reduction in Projected Critical Sewing Defects', icon: <CheckCircle size={24} /> },
-  { value: 100, label: 'Workflow Digitization & Paperless Reporting (%)', icon: <ShieldCheck size={24} /> },
+const HERO_NAVS = [
+  { label: 'Work Experience', href: '#experience', icon: <Briefcase size={20} /> },
+  { label: 'Projects & Work', href: '#projects', icon: <FolderGit2 size={20} /> },
+  { label: 'Skills & Tech', href: '#skills', icon: <Cpu size={20} /> },
+  { label: 'Get in Touch', href: '#contact', icon: <Send size={20} /> },
 ];
-
-function AchievementCard({ value, label, icon, delay }) {
-  const counterRef = useCounter(value);
-  const labelRef = useTextScramble(label);
-
-  return (
-    <div className={styles.achievement} style={{ transitionDelay: `${delay}s` }}>
-      <div className={styles.achievementIcon}>{icon}</div>
-      <div className={styles.achievementTextWrapper}>
-        <p className={styles.achievementValue} ref={counterRef}>0%</p>
-        <p className={styles.achievementLabel} ref={labelRef}>{label}</p>
-      </div>
-    </div>
-  );
-}
 
 export default function Hero() {
   const titleRef = useStaggerReveal();
@@ -98,11 +83,17 @@ export default function Hero() {
           </div>
 
           <div className={styles.achievementsWrapper} ref={achievementsRef}>
-            <div className={`heroAchievements ${styles.heroAchievements}`} ref={tiltRef}>
-              <h2 className={styles.achievementsTitle}>Key Achievements</h2>
-              <div className={styles.achievementsGrid}>
-                {ACHIEVEMENTS.map((a, i) => (
-                  <AchievementCard key={i} {...a} delay={0.1 + i * 0.1} />
+            <div className={`heroNavCard ${styles.heroNavCard}`} ref={tiltRef}>
+              <h2 className={styles.achievementsTitle}>Explore Portfolio</h2>
+              <div className={styles.heroNavGrid}>
+                {HERO_NAVS.map((nav, i) => (
+                  <a key={i} href={nav.href} className={styles.heroNavLink} onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector(nav.href)?.scrollIntoView({ behavior: 'smooth' });
+                  }}>
+                    <span className={styles.heroNavIcon}>{nav.icon}</span>
+                    <span className={styles.heroNavText}>{nav.label}</span>
+                  </a>
                 ))}
               </div>
             </div>

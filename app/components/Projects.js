@@ -1,8 +1,15 @@
 'use client';
 
-import { useScrollReveal, useStaggerReveal } from '../lib/animations';
-import { Camera, User, Image, Film, Star } from 'lucide-react';
+import { useScrollReveal, useStaggerReveal, useCounter } from '../lib/animations';
+import { Camera, User, Image, Film, Star, TrendingUp, CheckCircle, ShieldCheck, Zap } from 'lucide-react';
 import styles from './Projects.module.css';
+
+const ACHIEVEMENTS = [
+  { value: 64, label: 'Reduction in Sewing Line Changeover Time (%)', icon: <TrendingUp size={24} /> },
+  { value: 15, label: 'Increase in First-Hour Production Efficiency', icon: <Zap size={24} /> },
+  { value: 45, label: 'Reduction in Projected Critical Sewing Defects', icon: <CheckCircle size={24} /> },
+  { value: 100, label: 'Workflow Digitization & Paperless Reporting (%)', icon: <ShieldCheck size={24} /> },
+];
 
 const PROJECTS = [
   {
@@ -59,6 +66,19 @@ const VIDEOS = [
   { title: 'Short Film', link: 'https://photos.app.goo.gl/3PTiGmHgxtnqXdgv5' },
 ];
 
+function AchievementCard({ value, label, icon }) {
+  const counterRef = useCounter(value);
+  return (
+    <div className={styles.achievementStat}>
+      <div className={styles.achievementIcon}>{icon}</div>
+      <div className={styles.achievementText}>
+        <h4 ref={counterRef}>0%</h4>
+        <p>{label}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function Projects() {
   const headingRef = useScrollReveal();
   const gridRef = useStaggerReveal();
@@ -66,6 +86,12 @@ export default function Projects() {
 
   return (
     <section id="projects" className={`section ${styles.projects}`}>
+      <div className={styles.achievementsRow}>
+        {ACHIEVEMENTS.map((a, i) => (
+          <AchievementCard key={i} {...a} />
+        ))}
+      </div>
+
       <div className="container">
         <h2 className={`section-heading ${styles.heading} reveal`} ref={headingRef}>
           Projects & Research

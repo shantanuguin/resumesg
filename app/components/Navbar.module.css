@@ -2,17 +2,24 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
+  height: var(--nav-height);
   z-index: 100;
-  background: transparent;
-  transition: background var(--duration-normal) var(--ease-out),
-    backdrop-filter var(--duration-normal) var(--ease-out);
+  transition: background-color 0.4s var(--ease-out), border-color 0.4s var(--ease-out), transform 0.6s var(--ease-elastic), opacity 0.6s var(--ease-out);
+  border-bottom: 1px solid transparent;
 }
 
-.nav.scrolled {
-  background: var(--nav-bg);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+.scrolled {
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: var(--border);
+}
+
+.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .inner {

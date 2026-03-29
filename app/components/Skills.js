@@ -44,10 +44,10 @@ const SKILL_CATEGORIES = [
 ];
 
 const LANGUAGES = [
-  { name: 'English', level: 'Fluent' },
-  { name: 'Hindi', level: 'Fluent' },
-  { name: 'Bengali', level: 'Native' },
-  { name: 'Tamil', level: 'Beginner' },
+  { name: 'English', level: 'Fluent', msg1: 'Hi, how are you?', msg2: 'I am good, thanks!' },
+  { name: 'Hindi', level: 'Fluent', msg1: 'नमस्ते, आप कैसे हैं?', msg2: 'मैं ठीक हूँ, धन्यवाद।' },
+  { name: 'Bengali', level: 'Native', msg1: 'নমস্কার, আপনি কেমন আছেন?', msg2: 'আমি ভালো আছি, ধন্যবাদ।' },
+  { name: 'Tamil', level: 'Beginner', msg1: 'வணக்கம், எப்படி இருக்கிறீர்கள்?', msg2: 'நான் நன்றாக இருக்கிறேன், நன்றி.' },
 ];
 
 const LEVEL_LABELS = { expert: 'Expert', advanced: 'Advanced', proficient: 'Proficient' };
@@ -88,14 +88,19 @@ export default function Skills() {
 
         <div className={styles.languages}>
           <h3 className={styles.catTitle}>Languages</h3>
-          <div className={styles.langGrid}>
-            {LANGUAGES.map((lang, i) => (
-              <div key={i} className={`${styles.langCard} card`}>
-                <strong className={styles.langName}>{lang.name}</strong>
-                <span className={styles.langLevel}>{lang.level}</span>
+          <div className={styles.langGrid} ref={langRef}>
+          {LANGUAGES.map((lang, i) => (
+            <div key={i} className={styles.langCard}>
+              <h4 className={styles.langName}>{lang.name}</h4>
+              <p className={styles.langLevel}>{lang.level}</p>
+
+              <div className={styles.chatContainer}>
+                <div className={`${styles.chatBubble} ${styles.chatLeft}`}>{lang.msg1}</div>
+                <div className={`${styles.chatBubble} ${styles.chatRight}`}>{lang.msg2}</div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
         </div>
       </div>
     </section>
