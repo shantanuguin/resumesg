@@ -74,6 +74,7 @@ function SkillCategory({ cat }) {
 
 export default function Skills() {
   const headingRef = useScrollReveal();
+  const langRef = useStaggerReveal();
 
   return (
     <section id="skills" className={`section ${styles.skills}`}>
