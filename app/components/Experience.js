@@ -1,6 +1,7 @@
 'use client';
 
 import { useScrollReveal, useStaggerReveal, useHeadingMorph } from '../lib/animations';
+import { useTilt } from '../lib/useTilt';
 import styles from './Experience.module.css';
 
 const WORK_EXPERIENCE = [
@@ -9,6 +10,7 @@ const WORK_EXPERIENCE = [
     company: 'Sidney Apparels LLC – QVE Group Jordan',
     role: 'Manufacturing Excellence – Management Trainee',
     points: [
+      <>Gained comprehensive on-floor experience implementing <strong>Adidas Standard Needle to Needle aSc Layouts</strong>, optimizing physical factory workflow and operational layouts.</>,
       <>Developed a <strong>Progressive Web App (PWA)</strong> to digitize and manage sewing line changeovers, reducing changeover time from <strong>81× SMV to 29× SMV</strong>.</>,
       <>Designed and implemented standardized <strong>Quick Changeover SOPs</strong> and workflows to streamline coordination between production, maintenance, and line setup teams.</>,
       <>Engineered a digital <strong>Skill Matrix platform</strong> to evaluate operators and operations, enabling identification of <strong>multi-skilled operators</strong>.</>,
@@ -84,12 +86,14 @@ const EDUCATION = [
 ];
 
 function TimelineItem({ item }) {
+  const tiltRef = useTilt({ maxTilt: 4, scale: 1.02, speed: 400 });
+
   return (
     <div className={styles.timelineItem}>
       <div className={styles.dot} />
       <div className={styles.content}>
         <span className={`${styles.datePill} mono`}>{item.date}</span>
-        <div className={`${styles.card} card`}>
+        <div className={`${styles.card} card`} ref={tiltRef}>
           <h3 className={styles.company}>{item.company}</h3>
           <p className={styles.role}>{item.role}</p>
           {item.points.length > 0 && (

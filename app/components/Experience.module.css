@@ -73,15 +73,16 @@
    ============================== */
 .timeline {
   position: relative;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding-left: 2.5rem;
+  padding: 0; /* Remove left padding for desktop center layout */
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   top: 20px;
   bottom: 20px;
   width: 2px;
@@ -91,12 +92,22 @@
 
 .timelineItem {
   position: relative;
+  width: 50%;
   padding-bottom: 2.5rem;
+}
+
+.timelineItem:nth-child(odd) {
+  left: 0;
+  padding-right: 3rem;
+}
+
+.timelineItem:nth-child(even) {
+  left: 50%;
+  padding-left: 3rem;
 }
 
 .dot {
   position: absolute;
-  left: -2.5rem;
   top: 1.8rem;
   width: 22px;
   height: 22px;
@@ -107,8 +118,16 @@
   box-shadow: 0 0 12px var(--accent-glow);
 }
 
+.timelineItem:nth-child(odd) .dot {
+  right: -11px; /* Align to center line */
+}
+
+.timelineItem:nth-child(even) .dot {
+  left: -11px; /* Align to center line */
+}
+
 .content {
-  padding-left: 0.5rem;
+  padding: 0;
 }
 
 .datePill {
@@ -124,6 +143,17 @@
 
 .card {
   padding: 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  backdrop-filter: blur(16px);
+  transition: border-color var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--card-shadow);
 }
 
 .company {
@@ -186,11 +216,30 @@
   }
 
   .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timeline::before {
+    left: 10px;
+    transform: none;
+  }
+
+  .timelineItem {
+    width: 100%;
+    padding-bottom: 2rem;
+  }
+
+  .timelineItem:nth-child(odd),
+  .timelineItem:nth-child(even) {
+    left: 0;
+    padding-right: 0;
     padding-left: 0;
   }
 
-  .dot {
-    left: -2rem;
+  .timelineItem:nth-child(odd) .dot,
+  .timelineItem:nth-child(even) .dot {
+    left: -1.8rem; /* Mobile left-aligned dot */
+    right: auto;
     width: 18px;
     height: 18px;
   }

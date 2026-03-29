@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { TrendingUp, CheckCircle, ShieldCheck, Zap, FileText, Linkedin, MapPin, GraduationCap } from 'lucide-react';
 import { useCounter, useMagnetic, useStaggerReveal, useParallax, useTextScramble } from '../lib/animations';
+import { useTilt } from '../lib/useTilt';
 import ParticleCanvas from './ParticleCanvas';
 import Marquee from './Marquee';
 import styles from './Hero.module.css';
@@ -36,6 +37,7 @@ export default function Hero() {
   const btn1Ref = useMagnetic();
   const btn2Ref = useMagnetic();
   const achievementsRef = useParallax(-0.1);
+  const tiltRef = useTilt({ maxTilt: 5, scale: 1.02, speed: 400 });
 
   return (
     <section id="hero" className={styles.hero}>
@@ -95,12 +97,14 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className={`heroAchievements ${styles.heroAchievements}`} ref={achievementsRef}>
-            <h2 className={styles.achievementsTitle}>Key Achievements</h2>
-            <div className={styles.achievementsGrid}>
-              {ACHIEVEMENTS.map((a, i) => (
-                <AchievementCard key={i} {...a} delay={0.1 + i * 0.1} />
-              ))}
+          <div className={styles.achievementsWrapper} ref={achievementsRef}>
+            <div className={`heroAchievements ${styles.heroAchievements}`} ref={tiltRef}>
+              <h2 className={styles.achievementsTitle}>Key Achievements</h2>
+              <div className={styles.achievementsGrid}>
+                {ACHIEVEMENTS.map((a, i) => (
+                  <AchievementCard key={i} {...a} delay={0.1 + i * 0.1} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
