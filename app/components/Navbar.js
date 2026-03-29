@@ -7,11 +7,9 @@ import { useMagnetic } from '../lib/animations';
 import styles from './Navbar.module.css';
 
 const NAV_LINKS = [
-  { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
 ];
 
 function NavLink({ link, onClick, isActive }) {
@@ -105,7 +103,8 @@ export default function Navbar() {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
-            ShantanuGuin<span className={styles.logoDot}>.</span>
+            <span className={styles.logoDash}>—</span>
+            <span className={styles.logoText}>Apparel Tech & Innovation</span>
           </a>
 
           <div className={styles.links}>
@@ -120,6 +119,14 @@ export default function Navbar() {
           </div>
 
           <div className={styles.actions}>
+            <a
+              href="#contact"
+              className={styles.contactPill}
+              onClick={(e) => handleNavClick(e, '#contact')}
+            >
+              Get in Touch
+            </a>
+
             {mounted && (
               <button
                 className={styles.themeBtn}

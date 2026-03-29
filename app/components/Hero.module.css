@@ -1,9 +1,11 @@
+/* ==============================
+   HERO — Pastel Pop Layout
+   ============================== */
 .hero {
   min-height: 100vh;
   display: flex;
   position: relative;
   overflow: hidden;
-  background: var(--bg);
 }
 
 .gridContainer {
@@ -13,10 +15,10 @@
   min-height: 100vh;
 }
 
-/* --- Left Block --- */
+/* --- Left Block: Pastel Pink --- */
 .leftBlock {
-  background: var(--bg);
-  padding: 8rem 4rem 4rem var(--container-padding);
+  background: var(--hero-bg);
+  padding: 10rem 6rem 6rem var(--container-padding);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,167 +26,212 @@
   z-index: 5;
 }
 
-.index {
-  font-size: 1.5rem;
-  color: var(--accent);
-  opacity: 0.5;
-  margin-bottom: 2rem;
-  font-weight: 300;
-}
-
 .textContent {
-  max-width: 600px;
+  max-width: 650px;
 }
 
+/* --- Name Typography --- */
 .displayName {
-  font-size: clamp(3.5rem, 8vw, 8.5rem);
+  font-family: var(--font-serif);
   line-height: 0.85;
-  margin-bottom: 2rem;
-  color: var(--text-primary);
+  margin-bottom: 2.5rem;
+  color: var(--hero-text);
+}
+
+.firstName {
+  display: block;
+  font-size: clamp(4rem, 9vw, 9rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.lastName {
+  display: block;
+  font-size: clamp(4rem, 9vw, 9rem);
+  font-style: italic;
+  font-weight: 400;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--hero-text);
   letter-spacing: -0.02em;
+  margin-top: -0.1em;
 }
 
-.nameAccent {
-  color: var(--accent);
-  margin-left: 2rem;
+/* --- Profile Tag --- */
+.profileTag {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
 }
 
+.tagDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e; /* Green accent dot like reference */
+  flex-shrink: 0;
+}
+
+.profileTag .mono {
+  font-size: 0.75rem;
+  color: var(--hero-text);
+  opacity: 0.7;
+}
+
+/* --- Subtitle & CTAs --- */
 .subtitleReveal {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .subtitle {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  line-height: 1.6;
-  color: var(--text-secondary);
-  max-width: 450px;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--hero-text);
+  opacity: 0.8;
+  max-width: 400px;
+}
+
+.subtitle strong {
+  font-weight: 800;
+  opacity: 1;
 }
 
 .ctas {
   display: flex;
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: 1rem;
 }
 
+/* Hero-specific buttons (dark on pastel) */
+.btnHeroPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--hero-text);
+  color: #fff;
+  border: none;
+  transition: all 0.4s var(--ease-out);
+}
+
+.btnHeroPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(26, 26, 46, 0.4);
+}
+
+.btnHeroSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--hero-text);
+  border: 1.5px solid var(--hero-text);
+  transition: all 0.4s var(--ease-out);
+}
+
+.btnHeroSecondary:hover {
+  transform: translateY(-2px);
+  background: rgba(26, 26, 46, 0.06);
+}
+
+/* --- Meta --- */
 .meta {
   display: flex;
-  gap: 3rem;
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
+  gap: 2.5rem;
+  margin-top: 3rem;
+  color: var(--hero-text);
+  opacity: 0.6;
 }
 
 .metaItem {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  color: var(--text-muted);
+  gap: 0.5rem;
+  font-size: 0.85rem;
 }
 
-/* --- Right Block --- */
+/* --- Right Block: Dark Portrait --- */
 .rightBlock {
   position: relative;
-  background: var(--bg-secondary);
+  background: var(--hero-bg-right);
   display: flex;
   align-items: flex-end;
-  padding: 4rem;
+  justify-content: flex-end;
+  padding: 3rem;
+  overflow: hidden;
 }
 
-/* Decorative vertical split feeling */
-.rightBlock::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40%;
-  height: 100%;
-  background: rgba(59, 130, 246, 0.03); /* Subtle accent tint like the pink in inspiration */
-}
-
-.visualElement {
+.portraitArea {
   position: absolute;
   inset: 0;
   z-index: 1;
 }
 
-.imagePlaceholder {
+.portraitArea :global(canvas) {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom right, var(--bg-secondary), var(--bg));
-  overflow: hidden;
-}
-
-.imageOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, var(--bg) 0%, transparent 100%);
   z-index: 2;
+  opacity: 0.5;
 }
 
-.visualElement :global(canvas) {
+/* Gradient fade from pastel pink into the dark portrait */
+.portraitGradient {
   position: absolute;
   inset: 0;
   z-index: 3;
-  opacity: 0.3;
+  background: linear-gradient(to right, var(--hero-bg) 0%, transparent 50%);
+  pointer-events: none;
 }
 
-.navWrapper {
+/* --- Scroll Button --- */
+.scrollBtn {
   position: relative;
   z-index: 10;
-  width: 100%;
-  max-width: 480px;
-}
-
-.heroNavCard {
-  background: var(--surface);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
-  padding: 2.5rem;
-  border-radius: 1.5rem;
-  box-shadow: var(--card-shadow-hover);
-}
-
-.navTitle {
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--text-muted);
-  margin-bottom: 2rem;
-  font-weight: 300;
-}
-
-.heroNavGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-.heroNavLink {
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 1.25rem 1.75rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border);
-  border-radius: 1rem;
+  justify-content: center;
+  gap: 0.2rem;
+  cursor: pointer;
   transition: all 0.4s var(--ease-out);
+  animation: scrollPulse 2s ease-in-out infinite;
 }
 
-.heroNavLink:hover {
-  background: var(--surface-hover);
-  border-color: var(--accent);
-  transform: translateX(10px);
+.scrollBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
 }
 
-.heroNavIcon {
-  color: var(--accent);
+.scrollText {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
 }
 
-.heroNavText {
-  font-size: 1.1rem;
-  font-weight: 500;
+@keyframes scrollPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
 /* --- Marquee --- */
@@ -196,48 +243,59 @@
   z-index: 20;
   background: var(--bg);
   border-top: 1px solid var(--border);
-  padding: 0.75rem 0;
+  padding: 0.5rem 0;
 }
 
-/* --- Responsive --- */
+/* ==============================
+   Responsive
+   ============================== */
 @media (max-width: 1024px) {
   .gridContainer {
     grid-template-columns: 1fr;
   }
 
   .leftBlock {
-    padding-top: 8rem;
-    padding-bottom: 4rem;
+    padding: 8rem 3rem 4rem;
+  }
+
+  .firstName,
+  .lastName {
+    font-size: 5rem;
   }
 
   .rightBlock {
-    min-height: 500px;
-    padding: 3rem var(--container-padding);
-  }
-
-  .displayName {
-    font-size: 4.5rem;
+    min-height: 400px;
   }
 }
 
 @media (max-width: 768px) {
   .leftBlock {
-    padding: 6rem 1.5rem 3rem;
+    padding: 5rem 1.5rem 3rem;
     text-align: center;
     align-items: center;
   }
 
-  .nameAccent {
-    margin-left: 0;
-    display: block;
+  .firstName,
+  .lastName {
+    font-size: clamp(3rem, 14vw, 4.5rem);
+  }
+
+  .lastName {
+    -webkit-text-stroke: 1px var(--hero-text);
+  }
+
+  .profileTag {
+    justify-content: center;
   }
 
   .subtitle {
+    text-align: center;
     margin: 0 auto;
   }
 
   .ctas {
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .meta {
@@ -245,16 +303,16 @@
   }
 
   .rightBlock {
-    min-height: auto;
-    background: var(--bg);
+    min-height: 300px;
+    justify-content: center;
   }
 
-  .navWrapper {
-    max-width: 100%;
+  .scrollBtn {
+    width: 64px;
+    height: 64px;
   }
 
   .marqueeContainer {
     position: static;
   }
 }
-

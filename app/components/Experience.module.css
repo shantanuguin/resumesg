@@ -12,19 +12,19 @@
   display: block;
 }
 
-
 .timelineSection:last-child {
   margin-bottom: 0;
 }
 
-/* The horizontal heading — just plain text, no sticky, no background */
+/* Section sub-heading */
 .stickyHeader {
   display: block;
   text-align: center;
+  font-family: var(--font-serif);
   font-size: clamp(1.25rem, 3vw, 1.75rem);
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
   color: var(--accent);
   padding: 1.5rem 0;
   margin-bottom: 1rem;
@@ -32,7 +32,7 @@
 
 .contentWrapper {
   display: flex;
-  align-items: stretch; /* Must be stretch so the side label container has full height to stick within! */
+  align-items: stretch;
   position: relative;
 }
 
@@ -42,7 +42,7 @@
   flex-shrink: 0;
   z-index: 9;
   pointer-events: none;
-  opacity: 0; /* starts hidden, GSAP fades it in */
+  opacity: 0;
   height: 100%;
 }
 
@@ -53,10 +53,11 @@
   display: block;
   writing-mode: vertical-lr;
   transform: rotate(180deg);
+  font-family: var(--font-serif);
   font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
   color: var(--accent);
   white-space: nowrap;
   padding: 1rem 0;
@@ -73,7 +74,7 @@
    ============================== */
 .timeline {
   position: relative;
-  max-width: var(--container-max); /* Utilizes the full wide-screen layout constraint */
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: 0;
 }
@@ -98,32 +99,32 @@
 
 .timelineItem:nth-child(odd) {
   left: 0;
-  padding-right: 4rem; /* Increased side margin spacing */
+  padding-right: 4rem;
 }
 
 .timelineItem:nth-child(even) {
   left: 50%;
-  padding-left: 4rem; /* Increased side margin spacing */
+  padding-left: 4rem;
 }
 
 .dot {
   position: absolute;
   top: 1.8rem;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: var(--bg);
-  border: 3px solid var(--accent);
+  border: 2px solid var(--accent);
   z-index: 2;
-  box-shadow: 0 0 12px var(--accent-glow);
+  box-shadow: 0 0 16px var(--accent-glow);
 }
 
 .timelineItem:nth-child(odd) .dot {
-  right: -11px; /* Align to center line */
+  right: -10px;
 }
 
 .timelineItem:nth-child(even) .dot {
-  left: -11px; /* Align to center line */
+  left: -10px;
 }
 
 .content {
@@ -134,21 +135,43 @@
   display: inline-block;
   background: var(--surface);
   border: 1px solid var(--border);
-  padding: 0.25rem 0.75rem;
+  padding: 0.25rem 0.85rem;
   border-radius: 9999px;
-  font-size: 0.8rem;
-  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
   margin-bottom: 0.75rem;
 }
 
 .card {
-  padding: 1.75rem;
+  padding: 2rem;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 1rem;
+  border-radius: 1.25rem;
   backdrop-filter: blur(16px);
   transition: border-color var(--duration-normal) var(--ease-out),
               box-shadow var(--duration-normal) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Pastel Pop: accent left stripe on cards */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+.card:hover::after {
+  opacity: 1;
 }
 
 .card:hover {
@@ -157,15 +180,17 @@
 }
 
 .company {
-  font-size: 1.2rem;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
 }
 
 .role {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
   margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
 }
 
 .points {
@@ -176,7 +201,7 @@
 
 .points li {
   font-size: 0.875rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--text-secondary);
   padding-left: 1rem;
   position: relative;
@@ -201,9 +226,9 @@
     margin-bottom: 4rem;
     flex-direction: column;
     gap: 0;
-    overflow: hidden; /* Prevent any child from causing horizontal scroll */
+    overflow: hidden;
   }
-  
+
   .stickyHeader {
     width: 100% !important;
     margin-left: 0 !important;
@@ -238,7 +263,7 @@
 
   .timelineItem:nth-child(odd) .dot,
   .timelineItem:nth-child(even) .dot {
-    left: -1.8rem; /* Mobile left-aligned dot */
+    left: -1.8rem;
     right: auto;
     width: 18px;
     height: 18px;
@@ -248,4 +273,3 @@
     padding: 1.25rem;
   }
 }
-

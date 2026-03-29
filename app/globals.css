@@ -12,19 +12,19 @@
   --text-primary: #f1f5f9;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
-  --accent: #3b82f6;
-  --accent-glow: rgba(59, 130, 246, 0.15);
-  --gradient-start: #3b82f6;
-  --gradient-end: #8b5cf6;
-  --tag-bg: rgba(59, 130, 246, 0.1);
-  --tag-text: #60a5fa;
-  --tag-border: rgba(59, 130, 246, 0.2);
-  --cursor-select-bg: #3b82f6;
+  --accent: #8b5cf6;
+  --accent-glow: rgba(139, 92, 246, 0.15);
+  --gradient-start: #8b5cf6;
+  --gradient-end: #a78bfa;
+  --tag-bg: rgba(139, 92, 246, 0.1);
+  --tag-text: #a78bfa;
+  --tag-border: rgba(139, 92, 246, 0.2);
+  --cursor-select-bg: #8b5cf6;
   --cursor-select-text: #fff;
-  --aurora-1: rgba(56, 189, 248, 0.08);
-  --aurora-2: rgba(139, 92, 246, 0.08);
+  --aurora-1: rgba(139, 92, 246, 0.08);
+  --aurora-2: rgba(167, 139, 250, 0.06);
   --nav-bg: rgba(10, 10, 15, 0.6);
-  --proficiency-expert: #3b82f6;
+  --proficiency-expert: #8b5cf6;
   --proficiency-advanced: #475569;
   --proficiency-proficient: #334155;
   --proficiency-expert-text: #fff;
@@ -32,6 +32,11 @@
   --proficiency-proficient-text: #cbd5e1;
   --card-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.5);
+
+  /* Hero-specific (Pastel Pop) */
+  --hero-bg: #f5c6d8;
+  --hero-bg-right: #1a1a2e;
+  --hero-text: #1a1a2e;
 
   /* Font families */
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -62,19 +67,19 @@
   --text-primary: #1d1d1f;
   --text-secondary: #424245;
   --text-muted: #6e6e73;
-  --accent: #007aff;
-  --accent-glow: rgba(0, 122, 255, 0.1);
-  --gradient-start: #007aff;
-  --gradient-end: #7c3aed;
-  --tag-bg: rgba(0, 122, 255, 0.08);
-  --tag-text: #007aff;
-  --tag-border: rgba(0, 122, 255, 0.15);
-  --cursor-select-bg: #007aff;
+  --accent: #7c3aed;
+  --accent-glow: rgba(124, 58, 237, 0.1);
+  --gradient-start: #7c3aed;
+  --gradient-end: #8b5cf6;
+  --tag-bg: rgba(124, 58, 237, 0.08);
+  --tag-text: #7c3aed;
+  --tag-border: rgba(124, 58, 237, 0.15);
+  --cursor-select-bg: #7c3aed;
   --cursor-select-text: #fff;
-  --aurora-1: rgba(56, 189, 248, 0.04);
-  --aurora-2: rgba(139, 92, 246, 0.04);
+  --aurora-1: rgba(139, 92, 246, 0.04);
+  --aurora-2: rgba(167, 139, 250, 0.04);
   --nav-bg: rgba(245, 245, 247, 0.6);
-  --proficiency-expert: #007aff;
+  --proficiency-expert: #7c3aed;
   --proficiency-advanced: #6e6e73;
   --proficiency-proficient: #e5e5e7;
   --proficiency-expert-text: #fff;
@@ -82,6 +87,10 @@
   --proficiency-proficient-text: #1d1d1f;
   --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.1);
+
+  --hero-bg: #f5c6d8;
+  --hero-bg-right: #1a1a2e;
+  --hero-text: #1a1a2e;
 }
 
 /* ========================= */
@@ -162,9 +171,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-heading {
+  font-family: var(--font-serif);
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
+  font-style: italic;
 }
 
 .mono {
@@ -319,10 +330,12 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.85rem 1.75rem;
-  border-radius: 0.75rem;
+  padding: 0.85rem 2rem;
+  border-radius: 9999px; /* Pill shape */
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   position: relative;
   overflow: hidden;
   transition: all var(--duration-normal) var(--ease-out);

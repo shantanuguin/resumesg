@@ -33,10 +33,14 @@
 }
 
 .logo {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   transition: opacity var(--duration-fast) ease;
 }
 
@@ -44,8 +48,13 @@
   opacity: 0.8;
 }
 
-.logoDot {
-  color: var(--accent);
+.logoDash {
+  color: var(--text-primary);
+  font-weight: 300;
+}
+
+.logoText {
+  color: var(--text-secondary);
 }
 
 .links {
@@ -56,9 +65,11 @@
 
 .link {
   position: relative;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   transition: color var(--duration-fast) ease;
 }
 
@@ -96,7 +107,26 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
+}
+
+.contactPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.4s var(--ease-out);
+}
+
+.contactPill:hover {
+  background: var(--text-primary);
+  color: var(--bg);
 }
 
 .themeBtn {

@@ -1,68 +1,65 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { Briefcase, FolderGit2, Cpu, Send, FileText, Linkedin, MapPin, GraduationCap } from 'lucide-react';
-import { useCounter, useMagnetic, useStaggerReveal, useParallax, useTextScramble } from '../lib/animations';
+import { ChevronDown, FileText, Linkedin, MapPin, GraduationCap } from 'lucide-react';
+import { useMagnetic, useStaggerReveal, useParallax } from '../lib/animations';
 import { useTilt } from '../lib/useTilt';
 import ParticleCanvas from './ParticleCanvas';
 import Marquee from './Marquee';
 import styles from './Hero.module.css';
-
-const HERO_NAVS = [
-  { label: 'Work Experience', href: '#experience', icon: <Briefcase size={20} /> },
-  { label: 'Projects & Work', href: '#projects', icon: <FolderGit2 size={20} /> },
-  { label: 'Skills & Tech', href: '#skills', icon: <Cpu size={20} /> },
-  { label: 'Get in Touch', href: '#contact', icon: <Send size={20} /> },
-];
 
 export default function Hero() {
   const titleRef = useStaggerReveal();
   const metaRef = useStaggerReveal();
   const btn1Ref = useMagnetic();
   const btn2Ref = useMagnetic();
-  const achievementsRef = useParallax(-0.1);
-  const tiltRef = useTilt({ maxTilt: 5, scale: 1.02, speed: 400 });
+
+  const handleScroll = () => {
+    document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.gridContainer}>
-        {/* Left Side: Text & Content */}
+        {/* Left Side: Pastel Pink with Text */}
         <div className={styles.leftBlock}>
-          <div className={`${styles.index} mono`}>01</div>
-          
           <div className={styles.textContent}>
-            <p className={`${styles.eyebrow} eyebrow`}>Apparel Technology & Innovation</p>
-            <h1 className={`${styles.displayName} serif`} ref={titleRef}>
-              Shantanu <br />
-              <span className={styles.nameAccent}>Guin</span>
+            <h1 className={styles.displayName} ref={titleRef}>
+              <span className={styles.firstName}>Shantanu</span>
+              <span className={styles.lastName}>Guin</span>
             </h1>
-            
+
+            <div className={styles.profileTag}>
+              <span className={styles.tagDot} />
+              <span className="mono">01 / Profile</span>
+            </div>
+
             <div className={styles.subtitleReveal} ref={metaRef}>
               <p className={styles.subtitle}>
-                Apparel Production Technology student at <strong>NIFT</strong> specializing
-                in manufacturing optimization, factory digitalization, and automation.
+                Apparel Production Technology student at{' '}
+                <strong>NIFT</strong> specializing in manufacturing
+                optimization, factory digitalization, and automation.
               </p>
-              
+
               <div className={styles.ctas}>
                 <a
                   href="https://shantanuguin.github.io/costcalc/ResSG.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-primary"
+                  className={`${styles.btnHeroPrimary}`}
                   ref={btn1Ref}
                 >
-                  <FileText size={18} />
+                  <FileText size={16} />
                   <span>Resume</span>
                 </a>
                 <a
                   href="https://www.linkedin.com/in/shantanuguin/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-secondary"
+                  className={`${styles.btnHeroSecondary}`}
                   ref={btn2Ref}
                 >
-                  <Linkedin size={18} />
+                  <Linkedin size={16} />
                   <span>LinkedIn</span>
                 </a>
               </div>
@@ -81,35 +78,24 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Side: Visual & Nav */}
+        {/* Right Side: Dark Portrait Area */}
         <div className={styles.rightBlock}>
-          <div className={styles.visualElement}>
-            <div className={styles.imagePlaceholder}>
-              {/* This is where a high-quality portrait would go, similar to the inspiration */}
-              <div className={styles.imageOverlay} />
-            </div>
+          <div className={styles.portraitArea}>
+            {/* Gradient overlay fading from pastel pink into the dark portrait */}
+            <div className={styles.portraitGradient} />
+            {/* Particle canvas as visual filler */}
             <ParticleCanvas />
           </div>
-          
-          <div className={styles.navWrapper} ref={achievementsRef}>
-            <div className={`${styles.heroNavCard}`} ref={tiltRef}>
-              <h2 className={styles.navTitle}>Exploration</h2>
-              <div className={styles.heroNavGrid}>
-                {HERO_NAVS.map((nav, i) => (
-                  <a key={i} href={nav.href} className={styles.heroNavLink} onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector(nav.href)?.scrollIntoView({ behavior: 'smooth' });
-                  }}>
-                    <span className={styles.heroNavIcon}>{nav.icon}</span>
-                    <span className={styles.heroNavText}>{nav.label}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
+
+          {/* Frosted Glass Scroll Button */}
+          <button className={styles.scrollBtn} onClick={handleScroll} aria-label="Scroll down">
+            <span className={styles.scrollText}>Scroll</span>
+            <ChevronDown size={16} />
+          </button>
         </div>
       </div>
 
+      {/* Skills Marquee at Bottom */}
       <div className={styles.marqueeContainer}>
         <Marquee />
       </div>

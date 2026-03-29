@@ -1,7 +1,7 @@
 .marquee {
   width: 100%;
   overflow: hidden;
-  background: var(--surface);
+  background: var(--bg);
   border-top: 1px solid var(--border);
   border-bottom: 2px solid var(--accent);
   padding: 1rem 0;
@@ -20,17 +20,16 @@
   align-items: center;
   gap: 1.5rem;
   padding: 0 1.5rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   color: var(--text-secondary);
-  font-family: var(--font-ibm-plex-mono);
 }
 
 .dot {
   color: var(--accent);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 @keyframes scroll {
