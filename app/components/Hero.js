@@ -79,7 +79,7 @@ export default function Hero() {
         <div className={styles.rightBlock}>
           {/* Reference uses a specific image URL */}
           <img 
-            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2000&auto=format&fit=crop" 
+            src="/portrait.png" 
             alt="Shantanu Guin Portrait" 
             className={styles.portraitImg} 
           />
