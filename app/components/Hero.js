@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { ChevronDown, FileText, Linkedin, MapPin, GraduationCap } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { useMagnetic, useStaggerReveal, useParallax } from '../lib/animations';
 import { useTilt } from '../lib/useTilt';
 import ParticleCanvas from './ParticleCanvas';
@@ -20,15 +20,18 @@ export default function Hero() {
 
   return (
     <section id="hero" className={styles.hero}>
-      <div className={styles.gridContainer}>
-        {/* Left Side: Pastel Pink with Text */}
+      {/* Absolute Overlapping Name */}
+      <div className={styles.nameContainer}>
+        <h1 className={styles.displayName} ref={titleRef}>
+          <span className={styles.firstName}>Shantanu</span>
+          <span className={styles.lastName}>Guin</span>
+        </h1>
+      </div>
+
+      <div className={styles.splitLayout}>
+        {/* Left Side: 55% */}
         <div className={styles.leftBlock}>
           <div className={styles.textContent}>
-            <h1 className={styles.displayName} ref={titleRef}>
-              <span className={styles.firstName}>Shantanu</span>
-              <span className={styles.lastName}>Guin</span>
-            </h1>
-
             <div className={styles.profileTag}>
               <span className={styles.tagDot} />
               <span className="mono">01 / Profile</span>
@@ -36,9 +39,7 @@ export default function Hero() {
 
             <div className={styles.subtitleReveal} ref={metaRef}>
               <p className={styles.subtitle}>
-                Apparel Production Technology student at{' '}
-                <strong>NIFT</strong> specializing in manufacturing
-                optimization, factory digitalization, and automation.
+                Apparel Production Technology student at <strong className={styles.darkText}>NIFT</strong> specializing in manufacturing optimization, factory digitalization, and automation.
               </p>
 
               <div className={styles.ctas}>
@@ -49,7 +50,6 @@ export default function Hero() {
                   className={`${styles.btnHeroPrimary}`}
                   ref={btn1Ref}
                 >
-                  <FileText size={16} />
                   <span>Resume</span>
                 </a>
                 <a
@@ -59,7 +59,6 @@ export default function Hero() {
                   className={`${styles.btnHeroSecondary}`}
                   ref={btn2Ref}
                 >
-                  <Linkedin size={16} />
                   <span>LinkedIn</span>
                 </a>
               </div>
@@ -67,35 +66,32 @@ export default function Hero() {
 
             <div className={styles.meta}>
               <div className={styles.metaItem}>
-                <MapPin size={14} />
                 <span>New Delhi, India</span>
               </div>
               <div className={styles.metaItem}>
-                <GraduationCap size={14} />
-                <span className="mono" style={{ fontSize: '0.75rem' }}>NIFT &apos;26</span>
+                <span>NIFT &apos;26</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right Side: Dark Portrait Area */}
+        {/* Right Side: 45% */}
         <div className={styles.rightBlock}>
-          <div className={styles.portraitArea}>
-            {/* Gradient overlay fading from pastel pink into the dark portrait */}
-            <div className={styles.portraitGradient} />
-            {/* Particle canvas as visual filler */}
-            <ParticleCanvas />
-          </div>
-
-          {/* Frosted Glass Scroll Button */}
+          {/* Reference uses a specific image URL */}
+          <img 
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2000&auto=format&fit=crop" 
+            alt="Shantanu Guin Portrait" 
+            className={styles.portraitImg} 
+          />
+          <div className={styles.portraitGradient} />
+          
           <button className={styles.scrollBtn} onClick={handleScroll} aria-label="Scroll down">
             <span className={styles.scrollText}>Scroll</span>
-            <ChevronDown size={16} />
+            <ChevronDown size={16} strokeWidth={2} />
           </button>
         </div>
       </div>
 
-      {/* Skills Marquee at Bottom */}
       <div className={styles.marqueeContainer}>
         <Marquee />
       </div>

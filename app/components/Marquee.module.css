@@ -1,10 +1,8 @@
 .marquee {
   width: 100%;
   overflow: hidden;
-  background: var(--bg);
-  border-top: 1px solid var(--border);
-  border-bottom: 2px solid var(--accent);
-  padding: 1rem 0;
+  background: transparent;
+  padding: 0.75rem 0;
   position: relative;
   z-index: 5;
   white-space: nowrap;
