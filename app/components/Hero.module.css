@@ -6,6 +6,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  background: var(--hero-bg);
 }
 
 .splitLayout {
@@ -13,6 +14,7 @@
   flex-direction: column;
   width: 100%;
   flex: 1;
+  min-height: 100vh;
 }
 
 @media (min-width: 768px) {
@@ -30,6 +32,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 6rem;
+  background: var(--hero-bg);
 }
 
 @media (min-width: 768px) {
